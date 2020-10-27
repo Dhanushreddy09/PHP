@@ -9,7 +9,12 @@ if(!empty($_POST['submit'])){
 		}
 	}
 else{
-	echo "Something is wrong";
+	 if($_FILES['upload']['error']==1||$_FILES['upload']['error']==2){
+		 echo "File size limit exceeded";
+	 }
+	 else{
+		 echo "File is partially uploaded";
+	 }
 }
 	}
 ?>
