@@ -1,5 +1,13 @@
 <?php
 if(!empty($_GET['pic_name'])){
+	$acceptable_range=array(
+	"Dp.jpg",
+	//"dev ops tools.PNG"
+	);
+	$result=in_array($_GET['pic_name'],$acceptable_range,true);
+	if(!$result){
+		exit("This file is prohibited from downloading and hence you cannot");
+	}
 	$file = './Download/'.$_GET['pic_name'];
 if (file_exists($file)) {
     header('Content-Description: File Transfer');
