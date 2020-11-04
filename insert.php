@@ -10,6 +10,8 @@ else{
 	echo "row added successfully";
 }*/
 if(!empty($_POST['submit'])){
+	$_POST['user_name']=addslashes($_POST['user_name']);
+	$_POST['message']=addslashes($_POST['message']);
 	$sql="INSERT INTO `message` SET `user_name`='{$_POST['user_name']}',`post_time`='{$posttime}',`message`='{$_POST['message']}'";
 	$db->query($sql);
 	if($db->error){
