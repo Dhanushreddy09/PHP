@@ -43,6 +43,7 @@
 			$password=md5($password);
 			$sql="INSERT INTO `user` SET `user_name`='{$user_name}',`email`='{$email}',`password`='{$password}'";
 			$result=$db->query($sql);
+			$db->close();
 			if($result==true){
 				echo "registration successfull";
 			}
