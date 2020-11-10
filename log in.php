@@ -29,6 +29,7 @@ if(!empty($_POST['submit'])){
 	}
 }
 ?>
+Try registering If you haven't <a href="./registration.php"> Register</a>
 <form action="" method="POST">
 Email:<input type="text" name="email" value=""/><br />
 password:<input type="password" name="password" value="" /><br />

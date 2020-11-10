@@ -15,7 +15,8 @@ if(isset($_COOKIE['id'])&&isset($_COOKIE['security'])){
 	$db->close();
 	$shell=md5($array['user_id'].$array['password']."one_plus_one_is_three");
 	if($shell==$_COOKIE['security']){
-		echo "Welcome ".$array['user_name'];
+		echo "Welcome ".$array['user_name']."<br/>";
+		echo "you can log out by clicking here <a href='./logout'>log out</a>";
 	}
 	else{
 		exit("<script>window.location.href='./log in.php'</script>");

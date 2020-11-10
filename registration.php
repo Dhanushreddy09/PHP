@@ -45,7 +45,7 @@
 			$result=$db->query($sql);
 			$db->close();
 			if($result==true){
-				echo "registration successfull";
+				echo "<script>window.location.href='./log in.php'</script>";
 			}
 			else{
 				echo "registration unsuccessful";
