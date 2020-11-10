@@ -19,8 +19,10 @@ if(!empty($_POST['submit'])){
 	$result->free();
 	$db->close();
 	if($password==$array['password']){
-		echo "Login successful";
-		echo "Your user name is ".$array['user_name'];
+		setcookie("id",$array['user_id'],0,"/");
+		$security=md5($array['user_id'].$array['password']."one_plus_one_is_three");
+		setcookie("security",$security,0,"/");
+		echo "<script>window.location.href='./homepage.php'</script>";
 	}
 	else{
 		echo "Email or password is wrong"; 
