@@ -3,7 +3,7 @@ if(!empty($_POST['submit'])){
 	if($_FILES['upload']['error']==0){
 		switch($_FILES['upload']['type']){
 			case"image/jpeg":
-			echo "That was a valid file type";
+			echo "That was a valid file type <br />";
 			break;
 			default:
 			exit("invalid file type");
@@ -21,18 +21,18 @@ if(!empty($_POST['submit'])){
 			$destination=$new_file_destination."/".$new_file_name;
 		}
 		if(move_uploaded_file($_FILES['upload']['tmp_name'],$destination)){
-			echo "File succesfully uploaded";
+			echo "File succesfully uploaded <br />";
 		}
 		else{
-			echo "unable to upload file";
+			echo "unable to upload file <br />";
 		}
 	}
 else{
 	 if($_FILES['upload']['error']==1||$_FILES['upload']['error']==2){
-		 echo "File size limit exceeded";
+		 echo "File size limit exceeded <br />";
 	 }
 	 else{
-		 echo "File is partially uploaded";
+		 echo "File is partially uploaded <br />";
 	 }
 }
 	}

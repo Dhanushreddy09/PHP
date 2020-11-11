@@ -27,3 +27,8 @@ else{
 	}
 
 ?>
+<form method="POST" action="Processing files.php" enctype="multipart/form-data">
+ <input type="hidden" name="MAX_FILE_SIZE" value="3000000"/>
+ <input type="file" name="upload" value="" />
+ <input type="submit" name="submit" value="Upload"/>
+</form>
