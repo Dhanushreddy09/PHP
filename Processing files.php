@@ -1,4 +1,39 @@
 <?php
+/*if(isset($_COOKIE['id'])&&isset($_COOKIE['security'])){
+	$id=addslashes($_COOKIE['id']);
+	require_once("./connection.php");
+	$sql="SELECT* FROM `user` WHERE `user_id`='{$id}'";
+	$result=$db->query($sql);
+	if($db->error){
+		exit("database error");
+	}
+	if($result->num_rows==0){
+		exit("<script>window.location.href='./log in.php'</script>");
+	}
+	$array=$result->fetch_array();
+	$result->free();
+	$db->close();
+	$shell=md5($array['user_id'].$array['password']."one_plus_one_is_three");
+	if($shell==$_COOKIE['security']){
+		echo "Welcome ".$array['user_name']."<br/>";
+		echo "you can log out by clicking here <a href='./logout'>log out</a>";
+	}
+	else{
+		exit("<script>window.location.href='./log in.php'</script>");
+	}
+}
+else{
+	exit("<script>window.location.href='./log in.php'</script>");
+	}*/
+if(empty($_COOKIE['switch'])){
+	exit("Upload access denied");
+}
+if($_COOKIE['switch']=="on"){
+	setcookie("switch","",time()-1,"/");
+}
+else{
+	exit("upload access denied");
+}
 if(!empty($_POST['submit'])){
 	if($_FILES['upload']['error']==0){
 		switch($_FILES['upload']['type']){
@@ -21,6 +56,14 @@ if(!empty($_POST['submit'])){
 			$destination=$new_file_destination."/".$new_file_name;
 		}
 		if(move_uploaded_file($_FILES['upload']['tmp_name'],$destination)){
+			require_once("./connection.php");
+			$user_id=addslashes($_COOKIE['id']);
+			$sql="INSERT INTO `picture` SET `url`='{$destination}',`user_id`='{$user_id}'";
+			$db->query($sql);
+			if($db->error){
+				exit("sql error");
+			}
+			$db->close();
 			echo "File succesfully uploaded <br />";
 		}
 		else{

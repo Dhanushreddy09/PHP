@@ -25,7 +25,7 @@ if(isset($_COOKIE['id'])&&isset($_COOKIE['security'])){
 else{
 	exit("<script>window.location.href='./log in.php'</script>");
 	}
-
+	setcookie("switch","on",0,"/");
 ?>
 <form method="POST" action="Processing files.php" enctype="multipart/form-data">
  <input type="hidden" name="MAX_FILE_SIZE" value="3000000"/>
