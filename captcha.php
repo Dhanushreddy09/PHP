@@ -1,4 +1,5 @@
 <?php
+
 $image=imagecreatetruecolor(100,40) or die("unable to create canvas");
 
 $red=imagecolorallocate($image,255,0,0);//RGB for red
@@ -24,6 +25,8 @@ $first=$source[mt_rand(0,61)];
 $second=$source[mt_rand(0,61)];
 $third=$source[mt_rand(0,61)];
 $fourth=$source[mt_rand(0,61)];
+$vcode=$first.$second.$third.$fourth;
+setcookie("captcha",$vcode,0,"/");
 imagettftext($image,20,mt_rand(-20,20),10,30,$colors[mt_rand(0,2)],'c:\users\pothu\appdata\local\microsoft\windows\fonts\matt font.ttf',$first);
 imagettftext($image,20,mt_rand(-20,20),30,30,$colors[mt_rand(0,2)],'c:\windows\fonts\arial.ttf',$second);
 imagettftext($image,20,mt_rand(-20,20),50,30,$colors[mt_rand(0,2)],'c:\windows\fonts\consola.ttf',$third);
