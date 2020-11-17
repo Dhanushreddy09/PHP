@@ -25,6 +25,7 @@ if(isset($_COOKIE['id'])&&isset($_COOKIE['security'])){
 else{
 	exit("<script>window.location.href='./log in.php'</script>");
 	}
+	//This is the cookie used to prevent repetitive uploads
 	setcookie("switch","on",0,"/");
 ?>
 <form method="POST" action="Processing files.php" enctype="multipart/form-data">
