@@ -25,6 +25,7 @@
 else{
 	exit("<script>window.location.href='./log in.php'</script>");
 	}*/
+	
 if(empty($_COOKIE['switch'])){
 	exit("Upload access denied");
 }
