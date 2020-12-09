@@ -9,14 +9,14 @@ print_r($array);
 //array keys start from 6 cuz the highest key earlier was 5
 $array[]=56;
 print_r($array);
-//to reindex the array keys array values built in  function is used
+//to reindex the array keys array_values built in  function is used and this method makes sure the keys are numbers
 $array=array_values($array);
 print_r($array);
 //array dereferencing
 function getarray(){
     return array(1,2,3,56);
 }
-$firstelement=getarray()[0];
+$firstelement=getarray()[3];
 
 echo $firstelement;
 
